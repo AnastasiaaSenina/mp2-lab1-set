@@ -295,3 +295,50 @@ TEST(TSet, check_negation_operator)
 
   EXPECT_EQ(expSet, set1);
 }
+
+//янаярбеммше реярш
+
+TEST(TSet, add_operator_applied_to_tree_TSet_of_equal_size)
+{
+	const int size = 5;
+	TSet set1(size), set2(size), set3(size), set4(size);
+	// set1 = {1, 2}
+	set1.InsElem(1);
+	set1.InsElem(2);
+	// set2 = {0, 2}
+	set2.InsElem(0);
+	set2.InsElem(2);
+	//set3={3,4}
+	set3.InsElem(3);
+	set3.InsElem(4);
+	//set4={0,1,2,3,4}
+	set4.InsElem(0);
+	set4.InsElem(1);
+	set4.InsElem(2);
+	set4.InsElem(3);
+	set4.InsElem(4);
+
+	EXPECT_EQ(set4,set1+set2+set3);
+}
+
+TEST(TSet, add_operator_applied_to_tree_TSet_of_non_equal_size)
+{
+	const int size1 = 3,size2 = 4, size3 = 5;
+	TSet set1(size1), set2(size2), set3(size3), set4(size3);
+	// set1 = {1}
+	set1.InsElem(1);
+	// set2 = {0, 2}
+	set2.InsElem(0);
+	set2.InsElem(2);
+	//set3={3,4}
+	set3.InsElem(3);
+	set3.InsElem(4);
+	//set4={0,1,2,3,4}
+	set4.InsElem(0);
+	set4.InsElem(1);
+	set4.InsElem(2);
+	set4.InsElem(3);
+	set4.InsElem(4);
+
+	EXPECT_EQ(set4, set1 + set2 + set3);
+}
